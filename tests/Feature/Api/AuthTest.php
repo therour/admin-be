@@ -49,6 +49,7 @@ class AuthTest extends ApiTestCase
             $assert
                 ->where('data.name', $user->name)
                 ->where('data.email', $user->email)
+                ->whereType('data.permissions', 'array')
         );
 
         $response->assertStatus(200);

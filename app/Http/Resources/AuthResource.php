@@ -14,9 +14,12 @@ class AuthResource extends JsonResource
      */
     public function toArray($request)
     {
+        /** @var \App\Models\User */
+        $user = $this;
         return [
             'name' => $this->name,
             'email' => $this->email,
+            'permissions' => $user->getAllPermissions()->pluck('name')
         ];
     }
 }

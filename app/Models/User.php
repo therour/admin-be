@@ -14,6 +14,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use UuidKey, HasApiTokens, HasRoles, HasFactory, Notifiable;
+    
+    protected $guard_name = 'sanctum';
 
     /**
      * The attributes that are mass assignable.
