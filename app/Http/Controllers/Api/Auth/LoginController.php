@@ -64,7 +64,7 @@ class LoginController extends Controller
         );
         
         throw ValidationException::withMessages([
-            'email' => [trans('auth.throttle'), ['seconds' => $seconds, 'minutes' => ceil($seconds / 60)]]
+            'email' => [trans('auth.throttle', ['seconds' => $seconds, 'minutes' => ceil($seconds / 60)])]
         ])->status(Response::HTTP_TOO_MANY_REQUESTS);
     }
     
